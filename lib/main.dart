@@ -20,7 +20,7 @@ class MyApp extends StatelessWidget {
             child: Card(
               elevation: 10,
               shape: RoundedRectangleBorder(
-                borderRadius: BorderRadius.all(Radius.circular(50))
+                borderRadius: BorderRadius.all(Radius.circular(100))
               ),
               child: Container(
 
