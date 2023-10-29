@@ -15,23 +15,38 @@ class MyApp extends StatelessWidget {
 
     return MaterialApp(
       debugShowCheckedModeBanner: false,
-       home: Scaffold(
-          body: Center(
-            child: Card(
-              elevation: 10,
-              shape: RoundedRectangleBorder(
-                borderRadius: BorderRadius.all(Radius.circular(100))
-              ),
-              child: Container(
-
+      home: Scaffold(
+        body: Padding(
+          padding: const EdgeInsets.all( 10.0),
+          child: GridView.count(
+            mainAxisSpacing:10 ,
+              crossAxisSpacing: 10,
+              crossAxisCount: 2,
+            children: <Widget>[
+              Container(
                 height: 200,
-                width: 200,
-              ),
-            ),
+                width: 150 ,
+                color: Colors.blue,
           ),
-       ),
+              Container(
+                height: 200,
+                width: 150 ,
+                color: Colors.blue,
+          ),
+              Container(
+                height: 200,
+                width: 150 ,
+                color: Colors.blue,
+          ),
+              Container(
+                height: 200,
+                width: 150 ,
+                color: Colors.blue,
+          ),
+            ],
+          ),
+        )
+      ),
     );
   }
 }
-
-
