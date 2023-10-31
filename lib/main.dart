@@ -1,35 +1,59 @@
 import 'package:flutter/material.dart';
-import 'package:liquid_swipe/liquid_swipe.dart';
 
 void main() {
-  runApp(const MyApp());
+  runApp(MyApp());
 }
 
-class MyApp extends StatelessWidget {
-  const MyApp({super.key});
+class MyApp extends StatefulWidget {
+  @override
+  _MyAppState createState() => _MyAppState();
+}
 
-  // This widget is the root of your application.
+class _MyAppState extends State<MyApp> {
   @override
   Widget build(BuildContext context) {
-
-
-    return MaterialApp(
-      debugShowCheckedModeBanner: false,
+    return  MaterialApp(
       home: Scaffold(
-         body: Column(
-           children: <Widget>[
-             Expanded(
-               flex: 1,
-                 child: Container(color: Colors.green,)),
-             Expanded(
-               flex: 1,
-                 child: Container(color: Colors.red,)),
-             Expanded(
-               flex: 1,
-                 child: Container(color: Colors.yellow,)),
+         body: CustomScrollView(
+           slivers: <Widget>[
+             SliverAppBar(
+               pinned: true,
+               expandedHeight: 200,
+               backgroundColor: Colors.red,
+               flexibleSpace: FlexibleSpaceBar(
+                 title: Text("Be Patient"),
+
+               ),
+             ),
+             SliverList(delegate:SliverChildListDelegate(<Widget>[
+               addDetails("One", "this is one"),
+               addDetails("One", "this is one"),
+               addDetails("One", "this is one"),
+               addDetails("One", "this is one"),
+               addDetails("One", "this is one"),
+               addDetails("One", "this is one"),
+               addDetails("One", "this is one"),
+               addDetails("One", "this is one"),
+               addDetails("One", "this is one"),
+               addDetails("One", "this is one"),
+               addDetails("One", "this is one"),
+             ]) )
            ],
-         ) ,
+         ),
       ),
     );
   }
+}
+
+Widget addDetails(
+ String name,
+ String description,
+) {
+  return ListTile(
+    title: Text(name),
+    subtitle: Text(description),
+    leading: CircleAvatar(
+      child: Text(name[0]),
+    ),
+  );
 }
